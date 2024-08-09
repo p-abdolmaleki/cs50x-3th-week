@@ -266,12 +266,142 @@ int main()
 **To read more, refer to this [link](https://www.geeksforgeeks.org/introduction-to-recursion-2/).**
 
 ## Searching
+
 ### Linear search
+![](pics/Linear-Search-algorithm-banner.webp)
+
+#### What is Linear Search Algorithm?
+**Linear search** is a method for searching for an element in a collection of elements. In linear search, each element of the collection is visited one by one in a sequential fashion to find the desired element. Linear search is also known as **sequential search**.
+
+#### Algorithm for Linear Search Algorithm
+The algorithm for linear search can be broken down into the following steps:
+- **Start**: Begin at the first element of the collection of elements.
+- **Compare**: Compare the current element with the desired element.
+- **Found**: If the current element is equal to the desired element, return true or index to the current element.
+- **Move**: Otherwise, move to the next element in the collection.
+- **Repeat**: Repeat steps 2-4 until we have reached the end of collection.
+- **Not found**: If the end of the collection is reached without finding the desired element, return that the desired element is not in the array.
+
+#### How Does Linear Search Algorithm Work?
+- In Linear Search Algorithm, 
+- Every element is considered as a potential match for the key and checked for the same.
+- If any element is found equal to the key, the search is successful and the index of that element is returned.
+- If no element is found equal to the key, the search yields “No match found”.
+
+#### Example
+**For example**: Consider the array arr[] = {10, 50, 30, 70, 80, 20, 90, 40} and key = 30
+- **Step 1**: Start from the first element (index 0) and compare key with each element (arr[i]).
+    - Comparing key with first element arr[0]. SInce not equal, the iterator moves to the next element as a potential match.
+    ![](pics/Linear-search-algorithm-1.webp)
+    - Comparing key with next element arr[1]. SInce not equal, the iterator moves to the next element as a potential match.
+    ![](pics/Linear-search-algorithm-2.webp)
+- **Step 2**: Now when comparing arr[2] with key, the value matches. So the Linear Search Algorithm will yield a successful message and return the index of the element when key is found (here 2).
+    ![](pics/Linear-search-algorithm-3.webp)
+
+#### Implementation
+```C++
+#include <iostream>
+using namespace std;
+
+int search(int arr[], int size, int key)
+{
+    for (int i = 0; i < size; i++)
+        if (arr[i] == key)
+            return i;
+    return -1;
+}
+int main(void)
+{
+    int size = 5;
+    int arr[size] = { 2, 3, 4, 10, 40 };
+    int key = 10;
+
+    int result = search(arr, size, key);
+    if (result == -1)
+    {
+        cout << "Element is not present in array";
+    }
+    else
+    {
+       cout << "Element is present at index " << result; 
+    }
+    return 0;
+}
+```
+**To read more, refer to this [link](https://www.geeksforgeeks.org/linear-search/).**
+
 ### Binary search
+![](pics/binnary-search-algorithm-banner.webp)
+
+#### What is Binary Search Algorithm?
+**Binary search** is a search algorithm used to find the position of a target value within a **sorted** array. It works by repeatedly dividing the search interval in half until the target value is found or the interval is empty. The search interval is halved by comparing the target element with the middle value of the search space.
+
+#### Conditions to apply Binary Search Algorithm in a Data Structure
+To apply Binary Search algorithm:
+- The data structure must be sorted.
+- Access to any element of the data structure should take constant time.
+
+#### Binary Search Algorithm
+Below is the step-by-step algorithm for Binary Search:
+
+- Divide the search space into two halves by finding the middle index “mid”. 
+- Compare the middle element of the search space with the key. 
+- If the key is found at middle element, the process is terminated.
+- If the key is not found at middle element, choose which half will be used as the next search space.
+    - If the key is smaller than the middle element, then the left side is used for next search.
+    - If the key is larger than the middle element, then the right side is used for next search.
+- This process is continued until the key is found or the total search space is exhausted.
+
+#### Example
+**For example**: Consider an array arr[] = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91}, and the target = 23.
+![](pics/Binary-Search-1.webp)
+![](pics/Binary-Search-2.webp)
+![](pics/Binary-Search-3.webp)
+![](pics/Binary-Search-4.webp)
+
+#### Implementation
+```C++
+#include <iostream>
+using namespace std;
+int binarySearch(int arr[], int low, int high, int target)
+{
+    if (high >= low) 
+    {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] == target)
+            return mid;
+
+        if (arr[mid] > target)
+            return binarySearch(arr, low, mid - 1, target);
+
+        return binarySearch(arr, mid + 1, high, target);
+    }
+  return -1;
+}
+
+int main()
+{
+    int size = 5;
+    int arr[5] = { 2, 3, 4, 10, 40 };
+    int target = 10;
+    int result = binarySearch(arr, 0, size - 1, target);
+    if (result == -1) 
+    {
+        cout << "Element is not present in array";
+    }
+    else 
+    {
+        cout << "Element is present at index " << result;
+    }
+    return 0;
+}
+```
+**To read more, refer to this [link](https://www.geeksforgeeks.org/binary-search/).**
 
 ## Sorting
 ### Selection sort
-### Buble sort
+### Bubble sort
 ### Merge sort
 
 ## Suggestions for further reading
