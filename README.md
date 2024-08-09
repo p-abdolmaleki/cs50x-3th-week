@@ -554,6 +554,7 @@ Here’s a step-by-step explanation of how merge sort works:
 - **Merge**: The sorted subarrays are merged back together in sorted order. The process continues until all elements from both subarrays have been merged.
 #### Example
 Let’s sort the array or list [38, 27, 43, 10] using Merge Sort
+
 ![](pics/Merge-Sort-1.webp)
 ![](pics/Merge-Sort-2.webp)
 ![](pics/Merge-Sort-3.webp)
