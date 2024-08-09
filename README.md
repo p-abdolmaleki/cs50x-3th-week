@@ -279,5 +279,6 @@ int main()
 2. Time complexity interview method of recursive functions
 3. Tower of Hanoi
 4. Find the maximum and minimum
+5. Insertion Sort
 5. Quick sort
 6. .....
